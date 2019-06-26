@@ -1,0 +1,199 @@
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1;
+    opacity: 1;
+    border-radius: 90px;
+    animation: plask 1s both;
+
+}
+
+.circle--white {
+    width: 120px;
+    height: 120px;
+    background-color: lightskyblue;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1;
+    opacity: 1;
+    border-radius: 90px;
+    mix-blend-mode: multiply;
+}
+
+.circle--white::after {
+    content: "";
+    width: 130px;
+    height: 130px;
+    background-color: transparent;
+    border: 25px white solid;
+    border-radius: 190px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    opacity: 1;
+    transition: 0.3s ease-in-out;
+}
+
+.circle--white:hover::after {
+    background-color: lawngreen;
+    width: 260px;
+    height: 260px;
+}
+
+.box--box-from-bottom {
+    animation: boxAnimBottom 3s both;
+}
+
+.box--box-from-top {
+    animation: boxAnimTop 3s both;
+}
+
+.okno {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 5px solid black;
+    background: rgb(255, 255, 230);
+    background: radial-gradient(circle, rgba(255, 255, 230, 1) 0%, rgba(238, 174, 202, 1) 9%, rgba(7, 181, 255, 1) 48%, rgba(255, 154, 68, 1) 79%, rgba(148, 187, 233, 1) 100%);
+    /* background-color: tomato;
+    background-image: url(/img/migol59.jpg);
+    background-size: contain;
+    background-attachment: fixed; */
+    mix-blend-mode: multiply;
+    animation: oknoAnim 4s both;
+}
+
+@keyframes oknoAnim {
+    0% {
+        top: 0;
+        left: 0;
+        transform: rotate(0);
+    }
+
+    100% {
+        top: 400px;
+        left: 300px;
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes boxAnimBottom {
+
+    0% {
+        opacity: 0;
+        border-radius: 90px;
+        transform: translateY(-500px);
+    }
+
+    20% {
+        opacity: 1;
+        border-radius: 90px;
+        transform: translateY(0);
+
+    }
+
+    45% {
+
+        border-radius: 0px;
+        transform: rotate(0deg);
+
+    }
+
+    70% {
+
+        transform: rotate(45deg);
+
+    }
+
+    100% {
+
+        transform: rotate(45deg) scaleX(5);
+
+    }
+}
+
+
+@keyframes boxAnimTop {
+
+    0% {
+        opacity: 0;
+        border-radius: 90px;
+        transform: translateY(500px);
+    }
+
+    20% {
+        opacity: 1;
+        border-radius: 90px;
+        transform: translateY(0);
+
+    }
+
+    45% {
+
+        border-radius: 0px;
+        transform: rotate(0deg);
+
+    }
+
+    70% {
+
+        transform: rotate(-45deg);
+
+    }
+
+    100% {
+
+        transform: rotate(-45deg) scaleX(5);
+
+    }
+}
+
+@keyframes plask {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    45% {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    70% {
+        opacity: 1;
+
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(7);
+    }
+}
